@@ -11,8 +11,8 @@ for i in range(n):
                 j_2 = j + k - l
                 if j_1 < 0:
                     j_1 = 0
-                if j_2 >= n :
-                    j_2 = n-1
+                if j_2 > n :
+                    j_2 = n
                 if l == 0:
                     gold += sum(gold_mat[i][j_1:j_2])
                 else:
@@ -20,6 +20,7 @@ for i in range(n):
                         gold += sum(gold_mat[i+l][j_1:j_2])
                     if i-l >= 0 :
                         gold += sum(gold_mat[i-l][j_1:j_2])
+            
             if gold*cost >= k_cost:
                 max_gold = max(max_gold, gold)
-print(gold)
+print(max_gold)
