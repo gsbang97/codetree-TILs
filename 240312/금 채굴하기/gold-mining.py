@@ -3,7 +3,7 @@ gold_mat = [list(map(int, input().split())) for _ in range(n)]
 max_gold = 0
 for i in range(n):
     for j in range(n):
-        for k in range(n):
+        for k in range(n+1):
             k_cost = k*k+(k+1)*(k+1)
             gold = 0
             for l in range(k+1):
@@ -21,10 +21,10 @@ for i in range(n):
                         gold += sum(gold_mat[i+l][j_1:j_2])
                     if i-l >= 0 :
                         gold += sum(gold_mat[i-l][j_1:j_2])
-                # if (k == 3) and i == 3 and j == 2:
+                # if (k == 6) and i == 2 and j == 2:
                 #     print(i,l,j_1,j_2,j,k,l)
             if gold*cost >= k_cost:
                 max_gold = max(max_gold, gold)
-            # if (k == 3) and i == 3 and j == 2:
+            # if (k == 6) and i == 2 and j == 2:
             #     print(gold, cost, k_cost,gold*cost >= k_cost, max_gold,max(max_gold, gold))
 print(max_gold)
