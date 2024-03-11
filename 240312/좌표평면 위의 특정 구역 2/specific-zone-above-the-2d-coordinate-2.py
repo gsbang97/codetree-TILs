@@ -17,4 +17,4 @@ for i in range(N):
         max_y = max(max_y, y)
     width = (max_x-min_x) * (max_y - min_y)
     min_width = min(min_width, width)
-print(width)
+print(min_width)
