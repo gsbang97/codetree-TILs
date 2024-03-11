@@ -8,12 +8,14 @@ c = -1
 is_True = True
 people = []
 for i in range(1,M+1):
+    cnt = 0
     for p1, t1 in s_info:
         is_True = True
         for p2, m2, t2 in d_info:
             if p1 == p2 and m2 == i:
+                cnt +=1
                 is_True = is_True and t2 < t1
-    if is_True:
+    if is_True and cnt >= S:
         c = i
         # print(c)
         for p1,m1,t1 in d_info:
