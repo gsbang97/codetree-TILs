@@ -7,6 +7,6 @@ for i, s in enumerate(a):
     if s == '0' and flag:
         flag = False
 
-if flag == False:
+if flag:
     sum -= 1
 print(sum)
