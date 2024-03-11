@@ -8,7 +8,7 @@ for i in range(n):
             gold = 0
             for l in range(k+1):
                 
-                j_1 = j - k - l
+                j_1 = j - k + l
                 j_2 = j + k - l + 1
                 if j_1 < 0:
                     j_1 = 0
@@ -21,10 +21,10 @@ for i in range(n):
                         gold += sum(gold_mat[i+l][j_1:j_2])
                     if i-l >= 0 :
                         gold += sum(gold_mat[i-l][j_1:j_2])
-                # if (k == 1) and i == 2 and j == 4:
-                #     print(i,l,j_1,j_2)
+                # if (k == 3) and i == 3 and j == 2:
+                #     print(i,l,j_1,j_2,j,k,l)
             if gold*cost >= k_cost:
                 max_gold = max(max_gold, gold)
-            # if (k == 1) and i == 2 and j == 4:
+            # if (k == 3) and i == 3 and j == 2:
             #     print(gold, cost, k_cost,gold*cost >= k_cost, max_gold,max(max_gold, gold))
 print(max_gold)
