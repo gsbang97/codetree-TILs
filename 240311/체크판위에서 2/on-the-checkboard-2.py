@@ -9,8 +9,8 @@ else:
         for j in range(1,C-2):
             if mat[i][j] != color:
                 for k in range(i+1,R-1):
-                    for j in range(j+1, C-1):
-                        if mat[k][j] == color:
+                    for l in range(j+1, C-1):
+                        if mat[k][l] == color:
                             cnt +=1
 
     print(cnt)
