@@ -12,7 +12,7 @@ visited = set()
 for i in range(len(keys)):
     for j in range(i, len(keys)):
         s = keys[i]+keys[j]
-        if k - s in keys and k - s not in visited:
+        if k - s in keys:
             if i == j:
                 if keys[j] == (k - s):
                     cnt += (seq[keys[i]]*(seq[keys[i]]-1)*(seq[keys[i]]-2)) // 6
@@ -21,7 +21,7 @@ for i in range(len(keys)):
                     cnt += (seq[keys[i]]*(seq[keys[i]]-1)//2) * seq[k - s]
                     visited.add(keys[i])
                     visited.add((k-s))
-            else:
+            elif k - s not in visited:
                 if keys[i] == (k - s):
                     visited.add(keys[i])
                     visited.add(keys[j])
@@ -34,6 +34,6 @@ for i in range(len(keys)):
                     cnt += seq[keys[i]]*seq[keys[j]]*seq[k-s]
                     visited.add(keys[i])
                     visited.add(keys[j])
-            # print(key[i],key[j],k-s,cnt)
+            # print(keys[i],keys[j],k-s,cnt)
                 
 print(cnt)
