@@ -43,11 +43,11 @@ while scores != 0:
     best_score = [0,-2]
     for i in range(n-1):
         s = 0
-        if i > alphabet_dict[alpha[i]] -1 :
+        if i >= alphabet_dict[alpha[i]] -1 :
             s -= 1
         else:
             s += 1
-        if i + 1 < alphabet_dict[alpha[i+1]] -1 :
+        if i + 1 <= alphabet_dict[alpha[i+1]] -1 :
             s -= 1
         else:
             s += 1
