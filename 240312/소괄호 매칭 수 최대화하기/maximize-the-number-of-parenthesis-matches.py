@@ -38,14 +38,18 @@ strs = [score_2(input()) for _ in range(n)]
 # print(strs)
 strs.sort(key=cmp_to_key(compare2))
 # print(strs)
-scores = 0
-for i in range(n):
-    lefts = strs[i][0]
-    rights = 0
+scores = strs[0][2]
+lefts = strs[0][0]
+for i in range(1,n):
+    
+    rights = strs[i][1]
+    scores += lefts*rights + strs[i][2]
+    # print(lefts, rights, scores)
+    lefts += strs[i][0]
     # for j in range(i+1):
     #     lefts += strs[j][0]
-    for j in range(i+1,n):
-        rights += strs[j][1]
+    # for j in range(i+1,n):
+    #     rights += strs[j][1]
     # print(strs[i][2], lefts, rights)
-    scores += strs[i][2] + lefts*rights
+    
 print(scores)
