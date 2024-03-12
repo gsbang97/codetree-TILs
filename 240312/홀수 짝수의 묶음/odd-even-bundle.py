@@ -10,7 +10,7 @@ for n in numbers:
     else:
         odd[0] +=1
 if odd[0] < odd[1]: # 짝수가 더 많은 경우
-    print(odd[1]*2 + 1)
+    print(odd[0]*2 + 1)
 elif odd[0] == odd[1]: # 짝수와 홀수 수가 같은 경우
     print(odd[1]*2)
 else: # 홀수가 더 많은 경우
