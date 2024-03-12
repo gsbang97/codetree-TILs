@@ -15,7 +15,7 @@ elif odd[0] == odd[1]: # 짝수와 홀수 수가 같은 경우
     print(odd[1]*2)
 else: # 홀수가 더 많은 경우
     diff = odd[0] - odd[1]
-    cnt = 0
+    cnt = odd[1]*2
     while(diff > 4):
         diff -= 3
         cnt += 2
