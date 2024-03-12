@@ -16,4 +16,4 @@ numbers.sort(key = cmp_to_key(compare))
 s = ''
 for i in numbers:
     s += str(i)
-print(int(s))
+print(s)
