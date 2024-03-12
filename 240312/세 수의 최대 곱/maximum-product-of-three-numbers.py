@@ -5,6 +5,6 @@ nums.sort()
 # 음수 * 음수 * 양수
 first = nums[0]*nums[1]*nums[-1]
 # 양수 * 양수 * 양수
-seconds = nums[-1]*nums[-2]*nums[3]
+seconds = nums[-1]*nums[-2]*nums[-3]
 # 음수 * 음수 * 음수 (양수가 없는 경우)
 print(max(first,seconds))
