@@ -17,7 +17,7 @@ for i in range(len(keys)):
                 if keys[j] == (k - s):
                     cnt += (seq[keys[i]]*(seq[keys[i]]-1)*(seq[keys[i]]-2)) // 6
                     visited.add(keys[i])
-                else:
+                elif k - s not in visited:
                     cnt += (seq[keys[i]]*(seq[keys[i]]-1)//2) * seq[k - s]
                     visited.add(keys[i])
                     visited.add((k-s))
