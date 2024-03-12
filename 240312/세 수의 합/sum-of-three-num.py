@@ -23,10 +23,12 @@ for i in range(len(keys)):
                     visited.add((k-s))
             else:
                 if keys[i] == (k - s):
+                    visited.add(keys[i])
                     visited.add(keys[j])
                     cnt += (seq[keys[i]]*(seq[keys[i]]-1)//2) * seq[keys[j]]
                 elif keys[j] == (k - s):
                     visited.add(keys[i])
+                    visited.add(keys[j])
                     cnt += (seq[keys[j]]*(seq[keys[j]]-1)//2) * seq[keys[i]]
                 elif (k-s):
                     cnt += seq[keys[i]]*seq[keys[j]]*seq[k-s]
