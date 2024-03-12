@@ -3,20 +3,24 @@
 # 주어진 순서에 상관없이 묶음을 만들어도 된다?
 N = int(input())
 numbers = list(map(int, input().split()))
-
-num1 = 0
-num2 = sum(numbers)
-is_odd = False
-cnt = 0
-for i in range(N):
-    num1 += numbers[i]
-    num2 -= numbers[i]
-    if is_odd:
-        if num1%2 == 1 and num2%2 == 0:
-            cnt += 1
-            num1 = 0
+odd = [0,0]
+for n in numbers:
+    if n % 2 == 0:
+        odd[1] +=1
     else:
-        if num1%2 == 0 and num2%2 == 1:
-            cnt += 1
-            num1 = 0
-print(cnt)
+        odd[0] +=1
+if odd[0] < odd[1]: # 짝수가 더 많은 경우
+    print(odd[1]*2 + 1)
+elif odd[0] == odd[1]: # 짝수와 홀수 수가 같은 경우
+    print(odd[1]*2)
+else: # 홀수가 더 많은 경우
+    diff = odd[0] - odd[1]
+    cnt = 0
+    while(diff > 4):
+        diff -= 3
+        cnt += 2
+    if diff == 4 or diff == 2:
+        cnt += 1
+    elif diff == 3:
+        cnt += 2
+    print(cnt)
