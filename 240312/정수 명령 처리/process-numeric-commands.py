@@ -31,9 +31,9 @@ for _ in range(n):
     elif command[0] == 'size':
         print(stack.size())
     elif command[0] == 'empty':
-        if stack.empty:
-            print(0)
-        else:
+        if stack.empty():
             print(1)
+        else:
+            print(0)
     elif command[0] == 'top':
         print(stack.top())
