@@ -10,7 +10,7 @@ cnt = 0
 visited = []
 for key in seq.keys():
     if k-key == key:
-       cnt += seq[key]*(seq[key]-1)
+       cnt += seq[key]*(seq[key]-1)//2
     elif k-key in seq.keys() and k-key not in visited:
         cnt += (seq[key]*seq[k-key])
         visited.append(key)
