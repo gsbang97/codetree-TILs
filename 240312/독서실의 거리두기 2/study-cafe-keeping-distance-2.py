@@ -15,5 +15,5 @@ for i,s in enumerate(seat):
             max_diff = max(max_diff, dist)
             min_diff = min(min_diff, dist)
             start = i
-
-print(min(min_diff, max_diff//2))
+max_diff = max(max_diff//2, N-start-1)
+print(min(min_diff, max_diff))
