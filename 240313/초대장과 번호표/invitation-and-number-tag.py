@@ -5,22 +5,15 @@ num_c = 0
 flag = True
 invites = set([1])
 num_n = 1
-groups = [list(map(int, input().split()))[1:] for _ in range(g)]
+groups = [set(list(map(int, input().split()))[1:]) for _ in range(g)]
 # while(num_c != num_n):
 while(flag):
     flag = False
-    for g in groups:
-        if not g:
-            continue
-        if len(invites) >= (len(g)-1):
-            for i in invites:
-                if i in g:
-                    g.remove(i)
-        if len(g) == 1:
-            if g[0] not in invites:
-                invites.add(g[0])
-                g.remove(g[0])
-                flag = True
+    for group in groups:
+        group -= invites
+        if len(group) == 1:
+            invites.add(group.pop())
+            flag = True
     # num_n = len(invites)
 
 print(len(invites))
