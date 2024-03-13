@@ -18,18 +18,18 @@ def calc_score(cnt, x,y,c,s):
 
 def choose(cnt, x,y,score):
     global max_score, max_calc_score
-    # print(cnt, score)
+    # print(cnt,x,y, score)
     if cnt == 2:
         max_score = max(max_score, score)
         return
     for i in range(x,N):
         if i == x:
-            for j in range(y,N-M):
+            for j in range(y,N-M+1):
                 max_calc_score = 0
                 calc_score(0,i,j,C,0)
                 choose(cnt+1, i,j+M, score + max_calc_score)
         else:
-            for j in range(N-M):
+            for j in range(N-M+1):
                 max_calc_score = 0
                 calc_score(0,i,j,C,0)
                 choose(cnt+1, i,j+M, score + max_calc_score)
