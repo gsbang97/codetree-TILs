@@ -10,12 +10,15 @@ groups = [list(map(int, input().split()))[1:] for _ in range(g)]
 while(flag):
     flag = False
     for g in groups:
+        if not g:
+            continue
         for i in invites:
             if i in g:
                 g.remove(i)
         if len(g) == 1:
             if g[0] not in invites:
                 invites.add(g[0])
+                g.remove(g[0])
                 flag = True
     # num_n = len(invites)
 
