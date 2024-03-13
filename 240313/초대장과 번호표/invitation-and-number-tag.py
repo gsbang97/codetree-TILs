@@ -12,9 +12,10 @@ while(flag):
     for g in groups:
         if not g:
             continue
-        for i in invites:
-            if i in g:
-                g.remove(i)
+        if len(invites) >= (len(g)-1):
+            for i in invites:
+                if i in g:
+                    g.remove(i)
         if len(g) == 1:
             if g[0] not in invites:
                 invites.add(g[0])
