@@ -23,7 +23,7 @@ def check_safe(x,y,height):
             visited[nx][ny] = True
             check_safe(nx,ny,height)
 
-max_cnt = [-1,-1]
+max_cnt = [1,0]
 for height in range(1,max_k):
     visited = [[False for _ in range(m)] for _ in range(n)]
     cnt = 0
