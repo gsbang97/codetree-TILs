@@ -58,13 +58,12 @@ def choose_city(cnt,num):
         return
     
     for i in range(num+1,n*n):
-        
         starts.append(i)
         choose_city(cnt+1, i)
         starts.pop()
     if num<n*n:
         choose_city(cnt,num+1)
 
-choose_city(0,0)
+choose_city(0,-1)
 
 print(max_cnt)
