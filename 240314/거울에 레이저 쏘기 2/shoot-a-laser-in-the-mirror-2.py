@@ -14,7 +14,7 @@ elif d == 1 :
 elif d == 2 :
     x,y,direction = n, n-i-1, 0
 else:
-    x,y,direction = n-1-i, n, 1
+    x,y,direction = n-1-i, -1, 1
 mirror_dict = {
     "\\": [3,2,1,0],
     "/" : [1,0,3,2]
@@ -23,7 +23,6 @@ cnt = 0
 def in_range(x,y):
     return x >= 0 and x < n and y >= 0 and y < n
 while(1):
-    # print(x,y)
     x,y = x+dxs[direction], y+dys[direction]
     
     if not in_range(x,y):
