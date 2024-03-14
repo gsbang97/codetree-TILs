@@ -14,8 +14,9 @@ visited = [False for _ in range(n+1)]
 visited[1] = True
 cnt = 0
 def dfs(current):
+    
     global cnt
-    for x in range(n):
+    for x in range(1,n+1):
         if grape[current][x] and not visited[x]:
             visited[x] = True
             cnt += 1
