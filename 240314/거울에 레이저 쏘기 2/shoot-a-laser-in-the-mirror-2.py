@@ -23,9 +23,11 @@ cnt = 0
 def in_range(x,y):
     return x >= 0 and x < n and y >= 0 and y < n
 while(1):
-    cnt +=1
-    x,y = x+dxs[direction], y+dxs[direction]
+    # print(x,y)
+    x,y = x+dxs[direction], y+dys[direction]
+    
     if not in_range(x,y):
         break
+    cnt +=1
     direction = mirror_dict[mirrors[x][y]][direction]
 print(cnt)
