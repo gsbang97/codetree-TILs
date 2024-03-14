@@ -12,8 +12,8 @@ sys.setrecursionlimit(1000*n)
 heights = [list(map(int, input().split())) for _ in range(n)]
 
 visited = [[False for _ in range(n)] for _ in range(n)]
-starts = []
-
+city_value = [[-1 for _ in range(n)] for _ in range(n)]
+city_cnts = []
 city_cnt = 0
 max_cnt = 0
 
@@ -29,9 +29,9 @@ def can_go(x,y,height):
     return is_range(x,y) and abs(heights[x][y] - height) >= u and abs(heights[x][y] - height) <= d and not visited[x][y]
 
 def bfs(x,y):
-    if visited[x][y]:
-        return
-    global city_cnt
+    # if visited[x][y]:
+    #     return 0
+    city_cnt = 0
     city_cnt += 1
     que = deque([(x,y)])
     visited[x][y] = True
@@ -45,25 +45,10 @@ def bfs(x,y):
                 city_cnt += 1
                 visited[nx][ny] = True
                 que.append((nx,ny))
-def choose_city(cnt,num):
-    # print(cnt, num)
-    global city_cnt, max_cnt
-    if cnt == k:
-        city_cnt = 0
-        init_visited()
-        for start in starts:
-            bfs(start//n, start%n)
-        max_cnt = max(max_cnt, city_cnt)
-        # print(max_cnt,city_cnt, num)
-        return
-    
-    for i in range(num+1,n*n):
-        starts.append(i)
-        choose_city(cnt+1, i)
-        starts.pop()
-    if num<n*n:
-        choose_city(cnt,num+1)
-
-choose_city(0,-1)
-
-print(max_cnt)
+    return city_cnt
+for i in range(n):
+    for j in range(n):
+        if not visited[i][j]:
+            city_cnts.append(bfs(i,j))
+city_cnts.sort(reverse = True)
+print(sum(city_cnts[:k]))
