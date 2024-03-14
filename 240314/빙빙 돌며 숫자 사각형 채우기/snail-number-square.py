@@ -4,7 +4,7 @@
 n,m = map(int, input().split())
 
 def in_range(x,y):
-    return x >= 0 and x < n and y >= 0 and y < n
+    return x >= 0 and x < n and y >= 0 and y < m
 
 dx,dy = [0,1,0,-1], [1,0,-1,0]
 d = 0
@@ -13,7 +13,7 @@ cx,cy = 0,0
 ans[0][0] = 1
 for i in range(2,n*m+1):
     nx, ny = cx+dx[d], cy+dy[d]
-    if not in_range(nx,ny) or ans[nx][ny] != 0:
+    if (not in_range(nx,ny)) or ans[nx][ny] != 0:
         d += 1
         if d == 4:
             d = 0
