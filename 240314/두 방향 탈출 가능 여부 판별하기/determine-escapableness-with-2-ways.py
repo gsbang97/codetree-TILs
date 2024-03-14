@@ -10,7 +10,7 @@ board = [list(map(int, input().split())) for _ in range(n)]
 visited = [[False for _ in range(m)] for _ in range(n)]
 d = [(1,0),(0,1)]
 def is_range(x,y):
-    return x<n and y<n
+    return x<n and y<m
 def escape(x,y):
     if x == n-1 and y == m-1:
         print(1)
