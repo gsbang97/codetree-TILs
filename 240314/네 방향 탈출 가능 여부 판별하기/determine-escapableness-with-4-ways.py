@@ -21,12 +21,15 @@ def can_go(x,y):
         return False
     return True
 que = deque([[0,0]])
+visited[0][0] = True
 while que:
     (x,y) = que.popleft()
-    visited[x][y] = True
+    if x == n-1 and y == m-1:
+        break
     for dx,dy in zip(dxs,dys):
         nx,ny = x+dx, y+dy
         if can_go(nx,ny):
+            visited[nx][ny] = True
             que.append([nx,ny])
 
 if visited[-1][-1]:
