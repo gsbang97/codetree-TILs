@@ -42,7 +42,7 @@ def bfs(x,y):
         cx,cy = que.popleft()
         for dx, dy in zip(dxs, dys):
             nx, ny = cx + dx, cy + dy
-
+            
             if can_go(nx, ny, number):
                 if numbers[nx][ny] > max_num[2]:
                     max_num = [nx,ny,numbers[nx][ny]]
@@ -58,6 +58,8 @@ def bfs(x,y):
 # k번 반복
 for _ in range(k):
     nr,nc = bfs(r,c)
+    if nr == n or nc == n :
+        break
     if nr == r and nc == c:
         break
     r,c = nr,nc
