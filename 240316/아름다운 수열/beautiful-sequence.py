@@ -27,7 +27,7 @@ while i <= n-m:
         # print('pure')
         # print(A[i:i+m],i)
         buty.append(i)
-        i += m
+        i += m-1
     else:
         numbers = [b-A[i] for b in B]
         # print(numbers)
@@ -41,7 +41,7 @@ while i <= n-m:
                 # print('plus')
                 # print(A[i:i+m],i)
                 buty.append(i)
-                i += m
+                i += m-1
                 break
         if flag == False:
             i += 1
