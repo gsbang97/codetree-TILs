@@ -11,7 +11,10 @@ B = set([int(input()) for _ in range(m)])
 buty = []
 # print(A)
 # print(B)
-for i in range(n-m+1):
+# for i in range(n-m+1):
+i = 0
+while i <= n-m:
+    # setA = set(A[i:i+m])
     is_buty = True
     if A[i] in B:
         for a in A[i:i+m]:
@@ -24,6 +27,7 @@ for i in range(n-m+1):
         # print('pure')
         # print(A[i:i+m],i)
         buty.append(i)
+        i += m
     else:
         numbers = [b-A[i] for b in B]
         # print(numbers)
@@ -37,8 +41,10 @@ for i in range(n-m+1):
                 # print('plus')
                 # print(A[i:i+m],i)
                 buty.append(i)
+                i += m
                 break
-
+        if flag == False:
+            i += 1
 print(len(buty))
 for b in buty:
     print(b+1)
