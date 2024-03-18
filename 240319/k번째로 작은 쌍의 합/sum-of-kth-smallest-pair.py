@@ -6,7 +6,10 @@ A = sorted(list(map(int, input().split())))
 B = sorted(list(map(int, input().split())))
 
 arr = []
+ans = -1
 for a in A:
+    if ans != -1 and a > ans:
+        break
     for b in B:
         if k > 0:
             heapq.heappush(arr, -(a+b))
