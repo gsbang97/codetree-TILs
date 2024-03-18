@@ -2,8 +2,8 @@ import heapq
 
 n,m,k = map(int, input().split())
 
-A = list(map(int, input().split()))
-B = list(map(int, input().split()))
+A = sorted(list(map(int, input().split())))
+B = sorted(list(map(int, input().split())))
 
 arr = []
 for a in A:
@@ -15,6 +15,7 @@ for a in A:
             value = -heapq.heappop(arr)
             if value > a+b:
                 heapq.heappush(arr,-(a+b))
+                break
             else:
                 heapq.heappush(arr,-value)
 # for _ in range(k-1):
