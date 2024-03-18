@@ -20,5 +20,5 @@ for i, number in enumerate(numbers):
         if max_number > number:
             ans = ans * number // max_number
             heappush(min_numbers, -number)
-            max_number = heappop(min_numbers)
+            max_number = -heappop(min_numbers)
         print(ans)
