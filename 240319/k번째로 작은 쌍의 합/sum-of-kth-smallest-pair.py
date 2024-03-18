@@ -26,4 +26,6 @@ for a in A:
             #     heapq.heappush(arr,-value)
 # for _ in range(k-1):
 #     heapq.heappop(arr)
+if ans == -1:
+    ans = -heapq.heappop(arr)
 print(ans)
