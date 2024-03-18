@@ -17,11 +17,13 @@ for a in A:
         else:
             if ans == -1:
                 ans = -heapq.heappop(arr)
+            
             if ans > a+b:
+                # print(ans, a+b)
                 heapq.heappush(arr,-(a+b))
                 ans = -heapq.heappop(arr)
+            else:
                 break
-            # else:
                 
             #     heapq.heappush(arr,-value)
 # for _ in range(k-1):
