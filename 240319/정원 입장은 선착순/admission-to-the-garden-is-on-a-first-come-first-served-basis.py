@@ -30,10 +30,8 @@ for number, arrive, time in people:
             heapq.heappush(wait_time, (-(able_time - next_arrive), next_number))
             able_time += next_time
         if able_time < arrive:
-            if able_time == 0:
-                able_time = arrive
             heapq.heappush(wait_time, (0, number))
-            able_time += time
+            able_time = arrive + time
         else:
             heapq.heappush(waiting,(number,arrive,time))
 while waiting:
