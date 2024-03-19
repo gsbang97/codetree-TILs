@@ -24,7 +24,7 @@ class BookShelf:
             self.tail = tail
         else:
             connect(self.tail,head)
-            self.tail = head
+            self.tail = tail
         self.size += size
     def insert_head(self, node):
         if self.size == 0:
@@ -54,6 +54,7 @@ class BookShelf:
             self.head = None
             self.size = 0
         tail.prev = None
+        # print(self.tail)
         return tail
     def pop_head(self):
         if self.size == 0:
@@ -97,35 +98,44 @@ cnt = 0
 for _ in range(q):
     cnt += 1
     command, i,j = map(int, input().split())
+    if bookshelves[i].size == 0 :
+        continue
     if command == 1:
+        
         book = bookshelves[i].pop_head()
-        if not book is None:
-            bookshelves[j].insert_tail(book)
+        # if not book is None:
+        bookshelves[j].insert_tail(book)
     elif command == 2:
+        # if bookshelves[i].size > 0 :
         book = bookshelves[i].pop_tail()
-        if not book is None:
-            bookshelves[j].insert_head(book)
+        # if not book is None:
+        bookshelves[j].insert_head(book)
     elif command == 3:
         head, tail,size = bookshelves[i].pop_all()
-        if size > 0:
-            bookshelves[j].insert_head_all(head,tail,size)
+        # if size > 0:
+        bookshelves[j].insert_head_all(head,tail,size)
     elif command == 4:
         head, tail,size = bookshelves[i].pop_all()
-        if size > 0:
-            bookshelves[j].insert_tail_all(head,tail,size)
+        # if size > 0:
+        bookshelves[j].insert_tail_all(head,tail,size)
     # if cnt == 1:
+    # print(f"{cnt}번째")
+    # print(command, i, j)
     # for idx in range(1,k+1):
     #     node = bookshelves[idx].head
-    #     print(bookshelves[idx].size, end = " ")
-    #     print(bookshelves[idx].head, end = " ")
-    #     print(bookshelves[idx].tail)
-            # print(bookshelves[idx].size, end = " ")
-            # iii = 0 
-            # while node != None or iii < 10:
-            #     iii += 1
-            #     print(node.value, end = " ")
-            #     node = node.next
-            # print()
+    #     # print(bookshelves[idx].size, end = " ")
+    #     # print(bookshelves[idx].head, end = " ")
+    #     # print(bookshelves[idx].tail)
+        
+    #     if cnt >= 14:
+    #         print(f"size: {bookshelves[idx].size} head: {bookshelves[idx].head} tail: {bookshelves[idx].tail}")
+    #     # print(bookshelves[idx].size, end = " ")
+    #     # iii = 0 
+    #         while node:
+    #             # iii += 1
+    #             print(node.value, end = " ")
+    #             node = node.next
+    #         print()
 for i in range(1,k+1):
     node = bookshelves[i].head
     print(bookshelves[i].size, end = " ")
