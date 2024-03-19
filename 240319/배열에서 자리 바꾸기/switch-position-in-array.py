@@ -31,7 +31,7 @@ for _ in range(q):
         connect(node_arr[d], node_arr[a])
     else:
         connect(c_prev,node_arr[a])
-        connect(node_arr[c],b_next) 
+        connect(node_arr[d],b_next) 
     # node = node_arr[0]
     # for _ in range(n):
     #     node = node.next
