@@ -12,7 +12,8 @@ class BookShelf:
         
     def insert_tail(self, node):
         if self.size == 0:
-            self.head = self.tail = node
+            self.head = node
+            self.tail = node
         else:
             connect(self.tail,node)
             self.tail = node
@@ -27,7 +28,8 @@ class BookShelf:
         self.size += size
     def insert_head(self, node):
         if self.size == 0:
-            self.head = self.tail = node
+            self.head = node
+            self.tail = node
         else:
             connect(node,self.head)
             self.head = node
