@@ -46,10 +46,14 @@ for i in range(q):
         if not tweezer.left is None:
             tweezer = tweezer.left
     elif option == 3:
-        if not tweezer.right is None:
-            tweezer.right = tweezer.right.right
+        connect_city(tweezer, tweezer.right.right)
+        # if not tweezer.right is None:
+        #     tweezer.right = tweezer.right.right
     elif option == 4:
         right = tweezer.right
         connect_city(tweezer, City(command[1]))
         connect_city(tweezer.right, right)
+        # print(right.value, tweezer.right.right.value)
+        # print(tweezer.right.value, tweezer.right.left.value)
+    # print(tweezer, tweezer.value)
     print(tweezer)
