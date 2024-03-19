@@ -25,14 +25,20 @@ for _ in range(q):
     b_next = node_arr[b].next # 3
     c_prev = node_arr[c].prev # 2
     d_next = node_arr[d].next # 4
-    connect(node_arr[b],d_next)
-    connect(a_prev, node_arr[c])
     if b_next == node_arr[c]:
         connect(node_arr[d], node_arr[a])
+        connect(node_arr[b],d_next)
+        connect(a_prev, node_arr[c])
+    elif d_next == node_arr[a]:
+        connect(node_arr[b], node_arr[c])
+        connect(node_arr[d],b_next)
+        connect(c_prev, node_arr[a])
     else:
         connect(c_prev,node_arr[a])
         connect(node_arr[d],b_next) 
-    # node = node_arr[0]
+        connect(node_arr[b],d_next)
+        connect(a_prev, node_arr[c])
+    node = node_arr[0]
     # for _ in range(n):
     #     node = node.next
     #     print(node.value, end=" ")
