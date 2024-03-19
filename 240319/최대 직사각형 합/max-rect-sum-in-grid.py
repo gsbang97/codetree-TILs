@@ -10,8 +10,9 @@ for i in range(1, n+1):
     for j in range(1, n+1):
         prefix_sum[i][j] = number_map[i-1][j-1] + prefix_sum[i-1][j] + prefix_sum[i][j-1] - prefix_sum[i-1][j-1]
         max_value = max(max_value,prefix_sum[i][j])
-        for k in range(i):
-            for l in range(j):
-                value = prefix_sum[i][j] - prefix_sum[k][j] - prefix_sum[i][l] + prefix_sum[k][l]
-                max_value = max(max_value,value)
+        if number_map[i-1][j-1] > 0:
+            for k in range(i):
+                for l in range(j):
+                    value = prefix_sum[i][j] - prefix_sum[k][j] - prefix_sum[i][l] + prefix_sum[k][l]
+                    max_value = max(max_value,value)
 print(max_value)
