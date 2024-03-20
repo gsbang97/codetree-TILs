@@ -1,29 +1,15 @@
 n = int(input())
 
 B_cards = [int(input()) for _ in range(n)]
-A_cards = set(range(1,2*n+1)) - set(B_cards)
-A_cards = [True for _ in range(2*n+1)]
-A_cards[0] = False
-for card in B_cards:
-    A_cards[card] = False
-if max(B_cards) <= n:
-    print(n)
-    sys.exit()
+A_cards = list(set(range(1,2*n+1)) - set(B_cards))
+A_cards.sort()
+B_cards.sort()
+
+B_idx = 0
 score = 0
-min_card = 0
-for card in B_cards:
-    is_win = False
-    for win_card in range(max(min_card,card+1),2*n+1):
-        if A_cards[win_card]:
-            is_win = True
-            A_cards[win_card] = False
-            break
-    if is_win:
+for A_idx in range(n):
+    if B_idx < n and A_cards[A_idx] > B_cards[B_idx]:
         score += 1
-        continue
-    for lose_card in range(min_card,card):
-        if A_cards[lose_card]:
-            min_card = lose_card
-            A_cards[lose_card] = False
-            break
+        B_idx += 1
+
 print(score)
