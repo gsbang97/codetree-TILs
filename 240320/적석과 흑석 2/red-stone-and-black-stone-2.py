@@ -5,7 +5,7 @@ c,n = map(int, input().split())
 reds = [int(input()) for _ in range(c)]
 blacks = [tuple(map(int, input().split())) for _ in range(n)]
 reds.sort()
-blacks.sort(key=lambda x: (x[1],x[1]-x[0]))
+blacks.sort(key=lambda x: (x[1],-x[1]+x[0]))
 cnt = 0
 red_idx = 0
 black_idx = 0
