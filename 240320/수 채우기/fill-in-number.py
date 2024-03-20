@@ -7,8 +7,9 @@ coins[0] = 0
 for i in range(2,n+1):
     if coins[i-2] != sys.maxsize:
         coins[i] = min(coins[i], coins[i-2]+1)
-    if coins[i-5] != sys.maxsize:
+    if coins[i-5] != sys.maxsize and i-5 >= 0:
         coins[i] = min(coins[i], coins[i-5]+1)
+
 if coins[n] == sys.maxsize:
     coins[n] = -1
 print(coins[n])
