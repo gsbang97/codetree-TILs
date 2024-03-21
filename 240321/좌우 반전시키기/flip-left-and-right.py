@@ -1,7 +1,7 @@
 n = int(input())
 
 numbers = list(map(int, input().split()))
-min_push = 100
+min_push = 101
 def choose(cnt, push):
     global min_push
     if cnt == n-1:
@@ -15,17 +15,21 @@ def choose(cnt, push):
         choose(cnt + 1, push)
         numbers[cnt] = 0 if numbers[cnt] == 1 else 1
         numbers[cnt+1] = 0 if numbers[cnt+1] == 1 else 1
+        
         choose(cnt + 1, push + 1)    
     elif cnt < n-1:
         if numbers[cnt-1] == 1:
             choose(cnt + 1, push)
         else:
-            numbers[cnt - 1] = 0 if numbers[cnt] == 1 else 1
+            numbers[cnt - 1] = 0 if numbers[cnt-1] == 1 else 1
             numbers[cnt] = 0 if numbers[cnt] == 1 else 1
             numbers[cnt+1] = 0 if numbers[cnt+1] == 1 else 1
+            
             choose(cnt + 1, push + 1)
-            numbers[cnt - 1] = 0 if numbers[cnt] == 1 else 1
+            numbers[cnt - 1] = 0 if numbers[cnt-1] == 1 else 1
             numbers[cnt] = 0 if numbers[cnt] == 1 else 1
             numbers[cnt+1] = 0 if numbers[cnt+1] == 1 else 1
 choose(0,0)
+if min_push == 101:
+    min_push = -1
 print(min_push)
