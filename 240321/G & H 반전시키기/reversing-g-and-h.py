@@ -8,7 +8,7 @@ flip = 0
 prev_same = False
 is_init = True
 for a,b in zip(A,B):
-    if a == b:
+    if a != b:
         if not prev_same or is_init:
             is_init = False
             flip += 1
