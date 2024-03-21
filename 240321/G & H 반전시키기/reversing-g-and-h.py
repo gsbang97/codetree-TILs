@@ -18,5 +18,5 @@ for a,b in zip(A,B):
             is_init = False
             not_flip += 1
         prev_same = False
-ans = min(flip, not_flip+1)
+ans = flip
 print(ans)
