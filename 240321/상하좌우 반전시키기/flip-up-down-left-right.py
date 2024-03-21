@@ -10,7 +10,7 @@ min_push = n*n
 dxs,dys = [0,1,0,-1],[1,0,-1,0]
 def next_choose(x,y, push_cnt):
     if y == n-1:
-        choose(x+1,y, push_cnt)
+        choose(x+1,0, push_cnt)
     else:
         choose(x,y+1, push_cnt)
 
@@ -33,13 +33,27 @@ def is_not_push(x,y):
 def is_range(x,y):
     return x < n and x >= 0 and y < n and y >= 0
 def push(x,y):
+    numbers[x][y] = 1 if numbers[x][y] == 0 else 0
     for dx,dy in zip(dxs,dys):
         nx, ny = x + dx, y + dy
         if is_range(nx,ny):
             numbers[nx][ny] = 1 if numbers[nx][ny] == 0 else 0
+push_cnt_tmp = 0
+final = 0
 def choose(x,y, push_cnt):
+    global push_cnt_tmp, final
     global min_push
+    # if x == 1:
+    #     print(x,y)
+    # if push_cnt_tmp < push_cnt and final == 15:
+    #     push_cnt_tmp = push_cnt
+    #     print(x,y, push_cnt, min_push)
+    #     for i in range(n):
+    #         print(*numbers[i])
+    
     if x == n-1 and y == n-1:
+        push_cnt_tmp = 0
+        final += 1
         if numbers[x][y] == 1 and numbers[x-1][y] == 1 and numbers[x][y-1] == 1:
             min_push = min(min_push, push_cnt)
         elif numbers[x][y] == 0 and numbers[x-1][y] == 0 and numbers[x][y-1] == 0:
@@ -55,3 +69,4 @@ choose(0,1,0)
 if min_push == n*n:
     min_push = -1
 print(min_push)
+# print(final)
