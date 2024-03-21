@@ -7,6 +7,9 @@ def choose(cnt, push):
     # print(numbers)
     global min_push
     if cnt == n-1:
+        if n < 2:
+            min_push = -1 if numbers[-1] == 0 else 0
+            return
         if numbers[-1] == 1 and numbers[-2] == 1:
             min_push = min(min_push, push)
         elif numbers[-1] == 0 and numbers[-2] == 0:
